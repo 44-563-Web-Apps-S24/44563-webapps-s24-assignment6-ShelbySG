@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<title>Assignment 6</title>
+ </head>
+<body>
+
+<h2>Animal game by Shelby</h2>
+
+<form>
+    <label for="form1_animal">Animal</label>
+    <input type ="password" id="form1_animal" name="form1_animal" min=10 max=50 step=2 value="Chicken"> <br>
+
+    <label for="form1_guess">Guess the animal</label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="checkAnimal()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced</p>
+
+
+<script> 
+
+function checkAnimal(){
+    wrong=0
+    correct=0
+    
+    console.log("Getting form values")
+    animal = document.getElementById("form1_animal").value
+    guess = document.getElementById("form1_guess").value
+    confirmed = confirm("Is this your guess? "+guess)
+
+    out = document.getElementById("result")
+    if(animal=guess){
+        correct+=1
+        score=wrong+correct
+        out.innerHTML = ("Ruff Ruff ! Score: "+score)
+    } else {
+        wrong+=1
+        score=wrong+correct
+        out.innerHTML = ("Grrrr .. Score: "+score)
+    }
+    
+    
+}
+</script>
+
+</body>
+</html> 
