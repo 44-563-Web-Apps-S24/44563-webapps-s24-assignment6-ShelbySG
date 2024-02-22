@@ -21,11 +21,19 @@
 <p id="result">This text will be replaced</p>
 
 
+<div class="flex-container">
+
+<img src="smalldaq.png" class="img-thumbnail" alt="picture of a daquiri" height="150" width="150" onclick="selectImage()">
+
+</div>
+
 <script> 
+wrong=0
+correct=0
+useImage = 1
 
 function checkAnimal(){
-    wrong=0
-    correct=0
+    
     
     console.log("Getting form values")
     animal = document.getElementById("form1_animal").value
@@ -36,15 +44,39 @@ function checkAnimal(){
     if(animal=guess){
         correct+=1
         score=wrong+correct
-        out.innerHTML = ("Ruff Ruff ! Score: "+score)
+        out.innerHTML = ("Ruff Ruff !")
     } else {
         wrong+=1
         score=wrong+correct
-        out.innerHTML = ("Grrrr .. Score: "+score)
+        out.innerHTML = ("Grrrr ..")
     }
     
     
 }
+
+function selectImage(){
+    let img = document.querySelector("img")
+    switch(useImage){
+        case 1:
+            img.src='smalldaq.png'
+            useImage+=1
+            break;
+        case 2:
+            img.src='oj.jpg'
+            useImage+=1
+            break;
+        case 3:
+            img.src='grapesoda.png'
+            useImage-=2
+            break;
+    }
+
+
+
+}
+
+
+
 </script>
 
 </body>
