@@ -18,10 +18,31 @@
     <input type ="number" id="form1_reductions" name="form1_reductions" autofocus value=10> <br>
 
     <input type="button" onclick="discount()" value="Show total">
+
+<hr>
+
+    <input type="radio" id="rg1_sum" name="op" value="sum"   
+    checked >
+    <label for="rg1_red">Sum</label></br>
+
+    <input type="radio" id="rg1_mult" name="op" 
+     value="mult">
+    <label for="rg1_mult">Mult</label></br>
+
+    <input type="radio" id="rg1_exp" name="op"   
+     value="exp">
+    <label for="rg1_exp">Exp</label></br>
+
+    <input type="button" onclick="chooseOp()" value="Get values from radio group">
+
+
+
 </form>
 
 
 <p id="result">This text will be replaced </p>
+
+<p id="end">Text</p>
 
 <script> 
 
@@ -44,6 +65,31 @@ function discount(){
     }
     out = document.getElementById("result")
     out.innerHTML = ("Totals are : ", myOutput)
+}
+
+function chooseOp(){
+    price = document.getElementById("form1_price").value
+    reductions = document.getElementById("form1_reductions").value
+    check = document.querySelector('input[name="op"]:checked').value
+    total=0
+
+    if(check="sum"){
+        sum = (price+reductions)
+        end.innerHTML=("sum of " + price + " and " + reductions + " is " + sum)
+    }
+
+    if(check="mult"){
+        mult = price*reductions
+        end.innerHTML=("product of " + price + " and "+ reductions + " is " + mult)
+    }
+
+    if(check="exp"){
+        for (i in range (reductions)){
+            total+=price*price
+        }
+        end.innerHTML=("exp of " + price + " and " + reductions + " is " + total)
+    }
+    
 }
 </script>
 
